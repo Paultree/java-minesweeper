@@ -16,7 +16,7 @@ public class UserAttempts {
 		return userAttempts;
 	}
 	
-	public static List<String> getSurrLoc(String coordinate) {
+	public List<String> getSurrLoc(String coordinate) {
 		List<String> surroundingLocations = new ArrayList<>();
 		char x = coordinate.charAt(0);
 		char y = coordinate.charAt(1);
@@ -34,25 +34,46 @@ public class UserAttempts {
 		
 	}
 	
-	public void addUniqqueGuess(String userGuess) {
+	public boolean addUniqqueGuess(String coordinate) {
 		
-		if (this.userAttempts.contains(userGuess)) {
-			System.out.println("You have already used this coordinate! Try again!");
-			return;
+		if (this.userAttempts.contains(coordinate)) {
+			return false;
 		}
 		
 		
-		this.userAttempts.add(userGuess); //this is the last step
-		
+		this.userAttempts.add(coordinate); //this is the last step
+		return true;
 		
 	}
 	
 	//make a new function that checks the location against the bomblocations array
 	// this be a boolean check
-	
-	//make another function that runs if location aint true
+	public boolean checkGuess(String coordinate, List<String> bombLocations) {
+		boolean isAdded = this.addUniqqueGuess(coordinate);
+		
+		if (!isAdded) {
+			System.out.println("Coordinate already used.");
+			return false;
+		}
+		
+		if (bombLocations.contains(coordinate)) {
+			return true;
+		}
+		return false;	
+	}
+	//make another function that runs if location is not true
 	//loops the surrounding locations and checks if they are in the bomb location array.
 	// returns an int which we'll turn into a String which will then change the String coordination in our grid array then we re-render. 
-
+	public String countSurrBombs(List<String> bombLocations, String coordinate) {
+		List<String> surrLoc = this.getSurrLoc(coordinate);
+		int count = 0;
+		for (int i = 0; i < surrLoc.size(); ++i) {
+			if (bombLocations.contains(surrLoc.get(i))) {
+				count++;
+			}
+		}
+		String surrBombs = Integer.toString(count) + "!";
+		return surrBombs;
+	}
 
 }

@@ -11,11 +11,11 @@ Recreate a simplified version of the game Minesweeper to be played in the java c
 ## MVP
 
 - The game should be able to randomly generate 10 mines in a 10x10 grid -[x]
-- The user will be able to enter a command that represents a coordinate to check a location for a mine - []
-- The application will display a number from 0-8 depending on how many mines surround that location - []
-- If the user selects a mine, the game will respond "boom!" and the game will be lost - []
+- The user will be able to enter a command that represents a coordinate to check a location for a mine - [x]
+- The application will display a number from 0-8 depending on how many mines surround that location - [x]
+- If the user selects a mine, the game will respond "boom!" and the game will be lost - [x]
 - If every non-mine square has been revealed, the game is won - []
-- Render the grid to the console after every user command - []
+- Render the grid to the console after every user command - [x]
 
 ## Bonuses (optional)
 
@@ -35,12 +35,18 @@ Recreate a simplified version of the game Minesweeper to be played in the java c
   - if there is a bomb around it, put a number indidicating how many there are.
 - Created a class called Bomb which handles the generation of the 10 coordinates and are put in a List<String>
   - Will need to refactor the grid generator function to print out a list instead.
-  - We will then put in a parameter String coord which will get the list element and replace it with a number, a blank or an X followed by a game over.
+  - We will then put in a parameter String coord which will get the list element and replace it with a number, an O or an X followed by a game over.
   - will need to create another function that does a check of all the coordinates around the user input.
+  - Created a function that adds every userGuess to an arraylist.
+  - game will run on a while loop where it will keep looping until user guess array list hits 90 (max amount of guesses allowed before only bomb cells are left)
+  - need to add in the winning message.
+  - need to add in a validation function that only allows user to input Strings in grid Array.
 
 ## Reflection
 
 ## Future Goals
+
+- Complete the 2nd bonus functionality where empty bomb spots will be revealed until a bomb location is within reach.
 
 ## Further reading
 

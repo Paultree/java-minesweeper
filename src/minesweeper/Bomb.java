@@ -36,7 +36,7 @@ public class Bomb {
 	
 	//instantiate the instance of Bomb and then use below method
 	
-	public void bombLocationList() {
+	public List<String> bombLocationsList() {
 		for (int i = 0; i < 10; ++i) {
 			String coordinate = randomBombLocation();
 			
@@ -44,5 +44,6 @@ public class Bomb {
 				this.bombLocations.add(coordinate);
 			}	
 		}
+		return this.bombLocations;
 	}
 }
