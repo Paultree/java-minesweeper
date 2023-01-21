@@ -36,6 +36,8 @@ public class UserAttempts {
 	
 	public boolean addUniqqueGuess(String coordinate) {
 		
+		
+		
 		if (this.userAttempts.contains(coordinate)) {
 			return false;
 		}

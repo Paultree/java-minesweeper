@@ -7,6 +7,9 @@ import java.util.Scanner;
 public class PlayGame {
 
 	public static void startGame() {
+		
+		List<String> coordinatesArr = Coordinates.setCoordinatesArr();
+		
 		List<List<String>> gridCoordinates = new ArrayList<>();
 		
 		for (char i = 'A'; i <= 'J'; ++i) {
@@ -31,11 +34,17 @@ public class PlayGame {
 		Scanner inputObj = new Scanner(System.in);
 		
 		while (userAttempts.getUserAttempts().size() <= 90) {
+			
 		grid.renderGrid();
 		
 		System.out.println("Enter a coordinate:");
 		
 		String userGuess = inputObj.nextLine().toUpperCase();
+		
+		if (!coordinatesArr.contains(userGuess)) {
+			System.out.println("Please input a coordinate as shown on the grid.");
+			continue;
+		}
 		
 		boolean isBombFound = userAttempts.checkGuess(userGuess, bombLocations);
 		
@@ -45,11 +54,17 @@ public class PlayGame {
 			
 			grid.updateGridBoard(userGuess, count);
 		} else {
-			System.out.println("You found a bomb! Game over!");
+			System.out.println("BOOM! You landed on a mine! Game over!");
 			break;
 		}
 		
-		
+		if (userAttempts.getUserAttempts().size() == 90) {
+			System.out.println("You win!");
+			return;
+			}
 		}
+		
+		
+		
 	}
 }

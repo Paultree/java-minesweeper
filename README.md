@@ -14,7 +14,7 @@ Recreate a simplified version of the game Minesweeper to be played in the java c
 - The user will be able to enter a command that represents a coordinate to check a location for a mine - [x]
 - The application will display a number from 0-8 depending on how many mines surround that location - [x]
 - If the user selects a mine, the game will respond "boom!" and the game will be lost - [x]
-- If every non-mine square has been revealed, the game is won - []
+- If every non-mine square has been revealed, the game is won - [x]
 - Render the grid to the console after every user command - [x]
 
 ## Bonuses (optional)
@@ -41,6 +41,18 @@ Recreate a simplified version of the game Minesweeper to be played in the java c
   - game will run on a while loop where it will keep looping until user guess array list hits 90 (max amount of guesses allowed before only bomb cells are left)
   - need to add in the winning message.
   - need to add in a validation function that only allows user to input Strings in grid Array.
+  - Entire game logic in PlayGame class
+    - Create a list called coordinatesArr which houses all poosible coordinates user can input.
+    - Create a list called gridCoordinates which will also house all coordinates but is mainly used to output the grid and show any updates.
+    - Another list called bombLocations which will house 10 random bomb locations.
+    - Another list called userAttempts which records what the user has inputted.
+    - While loop: while userAttempts is less than or equal to 90 (100 coordinates - 10 bombs = 90.)
+      - renderGrid() : handles the grid rendering and any updates made to the gridcoordinates array are reflected in the grid render.
+      - String userGuess takes user input and uppercases it to match grid.
+      - an if statement which checks if userGuess is contained in the coordinatesArr to ensure user enters the required input.
+      - isBombFound is a boolean that runs the checkGuess method which checks if user input matches any String in bombLocations list.
+      - another if statement where if isBombFound is false (bomb location not inputted), a method that count(s)Surr(ounding)Bombs around the user input. After that another method, updateGridBoard() is used to update the user input coordinate owith surrounding bomb count. However, if bomb is found, we stop the while loop and let the user know they have lost.
+      - One last if statement that says that once size of userAttempts list is 90, game ends and prints output 'You win'.
 
 ## Reflection
 
