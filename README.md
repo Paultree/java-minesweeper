@@ -4,9 +4,13 @@ Recreate a simplified version of the game Minesweeper to be played in the java c
 
 ## Image
 
+![Alt Text](./project-demo.gif)
+
 ## Link
 
 ## Setup
+
+- Eclipse IDE Ver. 4.25.0
 
 ## MVP
 

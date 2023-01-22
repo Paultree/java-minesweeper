@@ -14,7 +14,7 @@ public class PlayGame {
 		
 		for (char i = 'A'; i <= 'J'; ++i) {
 			List<String> gridRow = new ArrayList<>();
-			for (int j = 1; j <= 10; ++j) {
+			for (int j = 0; j <= 9; ++j) {
 				String cell = i + String.valueOf(j);
 				gridRow.add(cell);
 			}
@@ -26,7 +26,6 @@ public class PlayGame {
 		Bomb bomb = new Bomb();
 		
 		List<String> bombLocations = bomb.bombLocationsList();
-		System.out.println(bombLocations);
 		
 		UserAttempts userAttempts = new UserAttempts();
 		
@@ -59,7 +58,7 @@ public class PlayGame {
 		}
 		
 		if (userAttempts.getUserAttempts().size() == 90) {
-			System.out.println("You win!");
+			System.out.println("All mines were swept! You win!");
 			return;
 			}
 		}
