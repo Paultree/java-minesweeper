@@ -11,12 +11,14 @@ public class Grid {
 	
 	
 	public void renderGrid() {
+		System.out.println("-----------------------------");
 		for (int i = 0; i < this.grid.size(); ++i) {
 			for (int j = 0; j < this.grid.get(i).size(); ++j) {
 				System.out.print(this.grid.get(i).get(j) + " ");
 			}
 			System.out.println();
 		}
+		System.out.println("-----------------------------");
 	}
 	
 	public static void initializeGridNoParams() {
