@@ -11,6 +11,12 @@ Recreate a simplified version of the game Minesweeper to be played in the java c
 ## Setup
 
 - Eclipse IDE Ver. 4.25.0
+- Clone repo
+- Open Eclipse
+- Click File > Open Projects From file system > directory > navigate to repo directory > finish
+- Right click on project in package explorer
+- Click run
+- play game in Eclipse console.
 
 ## MVP
 
